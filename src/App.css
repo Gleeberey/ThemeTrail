@@ -936,4 +936,50 @@ svg {
   .planner-form {
     grid-template-columns: 1fr;
   }
+}/* ROUTE FILTERS */
+
+.route-filters {
+  margin-bottom: 24px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(180px, 1fr);
+  gap: 16px;
+}
+
+.route-filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.route-filter-field label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.route-filter-field input,
+.route-filter-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: var(--card);
+  color: var(--foreground);
+
+  font: inherit;
+}
+
+.route-filter-field input:focus,
+.route-filter-field select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 620px) {
+  .route-filters {
+    grid-template-columns: 1fr;
+  }
 }
