@@ -1,6 +1,7 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { useState } from 'react'
+import RoutePlannerForm from '../components/RoutePlannerForm'
+import { useRoutePreferencesStore } from '../store/routePreferencesStore'
 import '../App.css'
 
 import { images, themes } from '../data/places'
@@ -9,7 +10,15 @@ import PlaceCard from '../components/PlaceCard'
 import Icon from '../components/Icon'
 
 function HomePage() {
-  const [selectedTheme, setSelectedTheme] = useState(themes[0])
+  const selectedThemeIndex = useRoutePreferencesStore(
+    (state) => state.selectedThemeIndex,
+  )
+
+  const setSelectedThemeIndex = useRoutePreferencesStore(
+    (state) => state.setSelectedThemeIndex,
+  )
+
+  const selectedTheme = themes[selectedThemeIndex]
 
   return (
     <div className="app">
@@ -57,8 +66,12 @@ function HomePage() {
         <ThemeSelector
           themes={themes}
           selectedTheme={selectedTheme}
-          onSelectTheme={setSelectedTheme}
+          onSelectTheme={(theme) =>
+            setSelectedThemeIndex(themes.indexOf(theme))
+          }
         />
+
+        <RoutePlannerForm />
 
         <section className="route-section" aria-live="polite">
           <div className="route-header">

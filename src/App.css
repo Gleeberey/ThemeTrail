@@ -873,3 +873,67 @@ svg {
     margin-top: 28px;
   }
 }
+/* ROUTE PLANNER FORM */
+
+.planner-section {
+  margin: 40px 0;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+}
+
+.planner-form {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.planner-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.planner-field label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.planner-field input,
+.planner-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--foreground);
+  font: inherit;
+}
+
+.planner-field input:focus,
+.planner-field select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.form-error {
+  color: #a33a3a;
+  font-size: 11px;
+}
+
+.form-success {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid #cbd8ca;
+  border-radius: 8px;
+  background: #edf1e9;
+  color: var(--primary);
+  font-size: 12px;
+}
+
+@media (max-width: 750px) {
+  .planner-form {
+    grid-template-columns: 1fr;
+  }
+}
