@@ -39,9 +39,7 @@ function RoutePlannerForm() {
       <div className="section-heading">
         <div>
           <h2>Настройте прогулку</h2>
-          <p>
-            Укажите стартовую точку и желаемую продолжительность маршрута.
-          </p>
+          <p>Укажите стартовую точку и желаемую продолжительность маршрута.</p>
         </div>
 
         <span className="section-number">02 — Параметры</span>
@@ -63,9 +61,7 @@ function RoutePlannerForm() {
           />
 
           {errors.startPoint && (
-            <span className="form-error">
-              {errors.startPoint}
-            </span>
+            <span className="form-error">{errors.startPoint}</span>
           )}
         </div>
 
@@ -88,9 +84,7 @@ function RoutePlannerForm() {
           </select>
 
           {errors.duration && (
-            <span className="form-error">
-              {errors.duration}
-            </span>
+            <span className="form-error">{errors.duration}</span>
           )}
         </div>
 

@@ -55,17 +55,11 @@ describe('RoutePlannerForm', () => {
       }),
     )
 
-    expect(
-      screen.getByText(/Параметры сохранены/i),
-    ).toBeInTheDocument()
+    expect(screen.getByText(/Параметры сохранены/i)).toBeInTheDocument()
 
-    expect(
-      screen.getByText(/Hotel Vilnia/i),
-    ).toBeInTheDocument()
+    expect(screen.getByText(/Hotel Vilnia/i)).toBeInTheDocument()
 
-    expect(
-      screen.getByText(/90 минут/i),
-    ).toBeInTheDocument()
+    expect(screen.getByText(/90 минут/i)).toBeInTheDocument()
 
     const state = useRoutePreferencesStore.getState()
 

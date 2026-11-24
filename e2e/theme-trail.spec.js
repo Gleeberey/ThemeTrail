@@ -10,21 +10,17 @@ test.describe('ThemeTrail user flows', () => {
       })
       .click()
 
-    await expect(
-      page.locator('.route-header h2'),
-    ).toHaveText('Архитектура XX века')
+    await expect(page.locator('.route-header h2')).toHaveText(
+      'Архитектура XX века',
+    )
   })
 
   test('user can configure walking route parameters', async ({ page }) => {
     await page.goto('/')
 
-    await page
-      .getByLabel('Стартовая точка')
-      .fill('Hotel Vilnia')
+    await page.getByLabel('Стартовая точка').fill('Hotel Vilnia')
 
-    await page
-      .getByLabel('Продолжительность')
-      .selectOption('90')
+    await page.getByLabel('Продолжительность').selectOption('90')
 
     await page
       .getByRole('button', {

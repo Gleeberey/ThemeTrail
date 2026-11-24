@@ -936,7 +936,7 @@ svg {
   .planner-form {
     grid-template-columns: 1fr;
   }
-}/* ROUTE FILTERS */
+} /* ROUTE FILTERS */
 
 .route-filters {
   margin-bottom: 24px;
@@ -982,7 +982,7 @@ svg {
   .route-filters {
     grid-template-columns: 1fr;
   }
-}/* GLOBAL ERROR BOUNDARY */
+} /* GLOBAL ERROR BOUNDARY */
 
 .app-error {
   min-height: 100vh;

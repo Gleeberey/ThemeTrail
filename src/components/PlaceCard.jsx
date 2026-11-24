@@ -45,11 +45,7 @@ function PlaceCard({ place, index }) {
           }}
           tabIndex="0"
         >
-          <img
-            src={place.image}
-            alt={place.alt}
-            loading="lazy"
-          />
+          <img src={place.image} alt={place.alt} loading="lazy" />
 
           <div className="place-content">
             <h3>{place.name}</h3>
@@ -65,10 +61,7 @@ function PlaceCard({ place, index }) {
       </li>
 
       {isOpen && (
-        <div
-          className="place-modal-backdrop"
-          onClick={() => setIsOpen(false)}
-        >
+        <div className="place-modal-backdrop" onClick={() => setIsOpen(false)}>
           <div
             className="place-modal"
             onClick={(event) => event.stopPropagation()}

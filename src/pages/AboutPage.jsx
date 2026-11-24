@@ -14,9 +14,9 @@ function AboutPage() {
             <h1>About ThemeTrail</h1>
 
             <p>
-              ThemeTrail is a web application for thematic walking routes.
-              It helps travellers discover a city through structured routes
-              based on their interests.
+              ThemeTrail is a web application for thematic walking routes. It
+              helps travellers discover a city through structured routes based
+              on their interests.
             </p>
 
             <a href="/" className="hero-button">

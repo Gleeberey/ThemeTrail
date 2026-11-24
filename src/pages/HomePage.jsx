@@ -39,9 +39,8 @@ function HomePage() {
             </h1>
 
             <p>
-              У каждого города — много историй. Выберите тему и
-              познакомьтесь с Вильнюсом через места, которые её
-              рассказывают.
+              У каждого города — много историй. Выберите тему и познакомьтесь с
+              Вильнюсом через места, которые её рассказывают.
             </p>
 
             <a href="#themes" className="hero-button">
@@ -51,10 +50,7 @@ function HomePage() {
           </div>
 
           <div className="hero-image">
-            <img
-              src={images.panorama}
-              alt="Панорама Вильнюса"
-            />
+            <img src={images.panorama} alt="Панорама Вильнюса" />
 
             <div className="hero-badge">
               <Icon name="pin" />
@@ -94,11 +90,7 @@ function HomePage() {
           {selectedTheme.places.length > 0 ? (
             <ol className="places-grid">
               {selectedTheme.places.map((place, index) => (
-                <PlaceCard
-                  key={place.name}
-                  place={place}
-                  index={index}
-                />
+                <PlaceCard key={place.name} place={place} index={index} />
               ))}
             </ol>
           ) : (

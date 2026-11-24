@@ -6,14 +6,11 @@ export const useRoutePreferencesStore = create((set) => ({
   duration: 120,
   startPoint: '',
 
-  setSelectedThemeIndex: (selectedThemeIndex) =>
-    set({ selectedThemeIndex }),
+  setSelectedThemeIndex: (selectedThemeIndex) => set({ selectedThemeIndex }),
 
-  setDuration: (duration) =>
-    set({ duration }),
+  setDuration: (duration) => set({ duration }),
 
-  setStartPoint: (startPoint) =>
-    set({ startPoint }),
+  setStartPoint: (startPoint) => set({ startPoint }),
 
   resetPreferences: () =>
     set({

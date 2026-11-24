@@ -17,10 +17,7 @@ export const handlers = [
     const theme = themes[Number(params.themeId)]
 
     if (!theme) {
-      return HttpResponse.json(
-        { message: 'Route not found' },
-        { status: 404 },
-      )
+      return HttpResponse.json({ message: 'Route not found' }, { status: 404 })
     }
 
     return HttpResponse.json(theme)
