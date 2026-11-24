@@ -47,9 +47,7 @@ function ThemeSelector({ themes, selectedTheme, onSelectTheme }) {
                 </span>
               </div>
 
-              {!selected && (
-                <Icon name="arrow" className="theme-arrow" />
-              )}
+              {!selected && <Icon name="arrow" className="theme-arrow" />}
             </button>
           )
         })}
