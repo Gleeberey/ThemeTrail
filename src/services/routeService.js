@@ -1,27 +1,29 @@
-import { themes } from '../data/places'
+async function apiRequest(url) {
+  const response = await fetch(url)
 
-const MOCK_DELAY = 400
+  if (!response.ok) {
+    let message = 'Request failed'
 
-function wait(ms) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, ms)
-  })
-}
+    try {
+      const data = await response.json()
 
-export async function getThemes() {
-  await wait(MOCK_DELAY)
+      if (data.message) {
+        message = data.message
+      }
+    } catch {
+      // Keep default message.
+    }
 
-  return themes
-}
-
-export async function getThemeById(themeId) {
-  await wait(MOCK_DELAY)
-
-  const theme = themes[Number(themeId)]
-
-  if (!theme) {
-    throw new Error('Route not found')
+    throw new Error(message)
   }
 
-  return theme
+  return response.json()
+}
+
+export function getThemes() {
+  return apiRequest('/api/themes')
+}
+
+export function getThemeById(themeId) {
+  return apiRequest(`/api/themes/${themeId}`)
 }
