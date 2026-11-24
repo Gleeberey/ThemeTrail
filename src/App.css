@@ -982,4 +982,30 @@ svg {
   .route-filters {
     grid-template-columns: 1fr;
   }
+}/* GLOBAL ERROR BOUNDARY */
+
+.app-error {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--background);
+}
+
+.app-error-card {
+  width: min(560px, 100%);
+  padding: 40px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+}
+
+.app-error-card h1 {
+  margin: 12px 0;
+}
+
+.app-error-card p {
+  margin-bottom: 24px;
+  color: var(--muted-foreground);
+  line-height: 1.6;
 }
