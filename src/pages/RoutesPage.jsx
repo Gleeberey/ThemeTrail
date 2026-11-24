@@ -48,15 +48,11 @@ function RoutesPage() {
     })
 
     if (sortOrder === 'title-asc') {
-      result = [...result].sort((a, b) =>
-        a.title.localeCompare(b.title, 'ru'),
-      )
+      result = [...result].sort((a, b) => a.title.localeCompare(b.title, 'ru'))
     }
 
     if (sortOrder === 'title-desc') {
-      result = [...result].sort((a, b) =>
-        b.title.localeCompare(a.title, 'ru'),
-      )
+      result = [...result].sort((a, b) => b.title.localeCompare(a.title, 'ru'))
     }
 
     return result
@@ -74,9 +70,7 @@ function RoutesPage() {
 
               <h2>Тематические маршруты</h2>
 
-              <p>
-                Найдите маршрут по интересующей теме и откройте его точки.
-              </p>
+              <p>Найдите маршрут по интересующей теме и откройте его точки.</p>
             </div>
           </div>
 
@@ -90,21 +84,13 @@ function RoutesPage() {
           )}
 
           {isLoading && (
-            <div className="empty-state">
-              Загрузка маршрутов...
-            </div>
+            <div className="empty-state">Загрузка маршрутов...</div>
           )}
 
-          {!isLoading && error && (
-            <div className="empty-state">
-              {error}
-            </div>
-          )}
+          {!isLoading && error && <div className="empty-state">{error}</div>}
 
           {!isLoading && !error && routes.length === 0 && (
-            <div className="empty-state">
-              Маршруты пока не найдены.
-            </div>
+            <div className="empty-state">Маршруты пока не найдены.</div>
           )}
 
           {!isLoading &&
@@ -116,33 +102,31 @@ function RoutesPage() {
               </div>
             )}
 
-          {!isLoading &&
-            !error &&
-            filteredRoutes.length > 0 && (
-              <div className="themes-grid">
-                {filteredRoutes.map((theme) => {
-                  const originalIndex = routes.indexOf(theme)
+          {!isLoading && !error && filteredRoutes.length > 0 && (
+            <div className="themes-grid">
+              {filteredRoutes.map((theme) => {
+                const originalIndex = routes.indexOf(theme)
 
-                  return (
-                    <Link
-                      key={theme.title}
-                      to={`/routes/${originalIndex}`}
-                      className="theme-card"
-                    >
-                      <div className="theme-content">
-                        <h3>{theme.title}</h3>
+                return (
+                  <Link
+                    key={theme.title}
+                    to={`/routes/${originalIndex}`}
+                    className="theme-card"
+                  >
+                    <div className="theme-content">
+                      <h3>{theme.title}</h3>
 
-                        <p>{theme.intro}</p>
+                      <p>{theme.intro}</p>
 
-                        <div className="theme-status">
-                          {theme.places.length} мест
-                        </div>
+                      <div className="theme-status">
+                        {theme.places.length} мест
                       </div>
-                    </Link>
-                  )
-                })}
-              </div>
-            )}
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          )}
         </section>
       </main>
 

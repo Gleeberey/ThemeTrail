@@ -38,17 +38,11 @@ function RoutePage() {
 
       <main className="container">
         <section className="route-section">
-          {isLoading && (
-            <div className="empty-state">
-              Загрузка маршрута...
-            </div>
-          )}
+          {isLoading && <div className="empty-state">Загрузка маршрута...</div>}
 
           {!isLoading && error && (
             <>
-              <div className="empty-state">
-                {error}
-              </div>
+              <div className="empty-state">{error}</div>
 
               <div style={{ marginTop: '24px' }}>
                 <Link to="/routes" className="hero-button">
@@ -62,9 +56,7 @@ function RoutePage() {
             <>
               <div className="route-header">
                 <div>
-                  <span className="route-label">
-                    ТЕМАТИЧЕСКИЙ МАРШРУТ
-                  </span>
+                  <span className="route-label">ТЕМАТИЧЕСКИЙ МАРШРУТ</span>
 
                   <h2>{theme.title}</h2>
 
@@ -75,11 +67,7 @@ function RoutePage() {
               {theme.places.length > 0 ? (
                 <ol className="places-grid">
                   {theme.places.map((place, index) => (
-                    <PlaceCard
-                      key={place.name}
-                      place={place}
-                      index={index}
-                    />
+                    <PlaceCard key={place.name} place={place} index={index} />
                   ))}
                 </ol>
               ) : (

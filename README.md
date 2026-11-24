@@ -260,12 +260,68 @@ The service layer is designed to be replaced by HTTP API calls when the ASP.NET 
 
 ### Loading and Error States
 
+### Service Layer
+
+Route data access is separated from page components through:
+
+```text
+src/services/routeService.js
+```
+
+Page components do not access route data directly. Instead, they call centralized service functions such as:
+
+- `getThemes()`
+- `getThemeById(themeId)`
+
+The service layer performs HTTP requests and can later be connected to the ASP.NET Core backend without rewriting the page components.
+
+### Mock HTTP API
+
+During the current Front-End stage, ThemeTrail uses Mock Service Worker (MSW) to provide a mocked HTTP API.
+
+The frontend performs real `fetch` requests through the service layer.
+
+Current mock endpoints:
+
+```text
+GET /api/themes
+GET /api/themes/:themeId
+```
+
+Relevant files:
+
+```text
+src/services/routeService.js
+src/mocks/handlers.js
+src/mocks/browser.js
+public/mockServiceWorker.js
+```
+
+MSW intercepts the HTTP requests in development and returns the current prototype route data.
+
+This architecture allows the mocked API to be replaced later by the ASP.NET Core backend while keeping the React pages and components largely unchanged.
+
+### Loading and Error States
+
 The route catalogue and route details pages contain explicit:
 
 - loading states;
-- error states;
+- request error states;
 - empty states;
+- search empty states;
 - route-not-found handling.
+
+The application also includes global error handling through a React Error Boundary.
+
+Relevant file:
+
+```text
+src/components/ErrorBoundary.jsx
+```
+
+If an unexpected React rendering error occurs, the Error Boundary displays a fallback interface instead of leaving the application in a broken state.
+
+The fallback interface allows the user to reload the application.
 
 ### Automated Tests
 
